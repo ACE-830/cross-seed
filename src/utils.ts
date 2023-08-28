@@ -49,7 +49,7 @@ export async function time<R>(cb: () => R, times: number[]) {
 
 export function cleanseSeparators(str: string): string {
 	return str
-		.replace(/[._()[\]]/g, " ")
+		.replace(/[._()[\]\u4e00-\u9fff]/g, " ")
 		.replace(/\s+/g, " ")
 		.trim();
 }

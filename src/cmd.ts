@@ -134,8 +134,13 @@ function createCommandWithSharedOptions(name, description) {
 		)
 		.option(
 			"-e, --include-episodes",
-			"Include single-episode torrents in the search",
+			"Include all episode torrents in the search (including from season packs)",
 			fallback(fileConfig.includeEpisodes, false)
+		)
+		.option(
+			"--include-single-episodes",
+			"Include single episode torrents in the search",
+			fallback(fileConfig.includeSingleEpisodes, false)
 		)
 		.option(
 			"--no-include-non-videos",
@@ -304,6 +309,7 @@ createCommandWithSharedOptions("daemon", "Start the cross-seed daemon")
 			setRuntimeConfig(runtimeConfig);
 			initializeLogger();
 			initializePushNotifier();
+			logger.info(`${PROGRAM_NAME} v${PROGRAM_VERSION}`);
 			logger.verbose({
 				label: Label.CONFIGDUMP,
 				message: inspect(runtimeConfig),

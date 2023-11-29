@@ -31,10 +31,12 @@ interface FileConfig {
 	torznab?: string[];
 	qbittorrentUrl?: string;
 	transmissionRpcUrl?: string;
+	delugeRpcUrl?: string;
 	duplicateCategories?: boolean;
 	notificationWebhookUrl?: string;
 	port?: number;
 	host?: string;
+	apiAuth?: boolean;
 	searchCadence?: string;
 	rssCadence?: string;
 	snatchTimeout?: string;
